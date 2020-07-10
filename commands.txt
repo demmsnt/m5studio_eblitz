@@ -1,0 +1,5 @@
+# in case Win10
+# set FLASK_APP=app/__init__.py
+set FLASK_APP=app/app.py
+set FLASK_MODE=development
+flask run

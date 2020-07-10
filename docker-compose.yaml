@@ -1,0 +1,34 @@
+version: '3'
+services:
+    db:
+        env_file: ./.dbenv
+        volumes:
+            - ./backups:/backups
+            - ./pg_data:/var/lib/postgresql
+        restart: always
+        image: postgres:10
+        working_dir: /app
+        ports:
+            - 5434:5432
+    redis:
+        image: redis:latest
+        volumes:
+          - ./redis_data:/data
+        ports:
+          - "6379"
+    user-service:
+        build:
+          context: .
+          dockerfile: ./docker/app.docker/Dockerfile
+        env_file: ./.flaskenv
+        ports:
+            - 5000:5000
+        command: ["/entrypoint.sh"]
+        volumes:
+          # для разработки надо менять файлы
+          - ./fortunepy:/app/fortunepy
+          - ./user_service/:/app/user_service
+          - ./flags:/flags
+        depends_on:
+          - db
+          - redis
