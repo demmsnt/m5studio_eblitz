@@ -2,7 +2,6 @@
 
 Using python 3.8
 
-First of all create virtualenv venv and install all packeages ``` pip install -r requirements.txt ```
 
 1. Create .env and .flaskenv in /app dir
 
@@ -34,4 +33,28 @@ First of all create virtualenv venv and install all packeages ``` pip install -r
     POSTGRES_PASSWORD=changeme
     ```
 
+2. For running use
+
+    ``` console
+    docker-compose build
+    docker-compose up
+    ```
+
 If database initializet db_exist.flag will be created
+
+## Linter
+  
+  For use linter run container end enter:
+
+    ``` console
+    docker-compose exec user-service /linter.sh
+    ```
+
+    Or (if container not running)
+
+
+    ``` console
+    docker-compose run user-service /linter.sh
+    ```
+
+

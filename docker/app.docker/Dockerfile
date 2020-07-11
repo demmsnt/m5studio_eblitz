@@ -136,13 +136,15 @@ RUN set -ex; \
 
 COPY ./requirements.txt /requirements.txt
 COPY ./docker/app.docker/entrypoint.sh /entrypoint.sh
+COPY ./docker/app.docker/linter.sh /linter.sh
 
 RUN apk add postgresql-dev gcc python3-dev musl-dev \
-	&& pip install psycopg2-binary
+	&& pip install psycopg2-binary pylint pylint-flask pylint_flask_sqlalchemy
 
 RUN	pip install -r /requirements.txt; \
 	rm /requirements.txt; \
-	chmod a+x /entrypoint.sh
+	chmod a+x /entrypoint.sh; \
+	chmod a+x /linter.sh; 
 
 
 #CMD ["python3"]
