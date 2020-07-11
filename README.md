@@ -44,14 +44,13 @@ If database initializet db_exist.flag will be created
 
 ## Linter
   
-  For use linter run container end enter:
+1.  For use linter run container end enter:
 
     ``` console
     docker-compose exec user-service /linter.sh
     ```
 
-    Or (if container not running)
-
+2.    Or (if container not running)
 
     ``` console
     docker-compose run user-service /linter.sh
