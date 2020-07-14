@@ -143,7 +143,8 @@ RUN apk add uwsgi uwsgi-python3 postgresql-dev gcc python3-dev musl-dev \
 
 RUN	pip install -r /requirements.txt; \
 	rm /requirements.txt; \
-	chmod a+x /entrypoint.prod.sh
+	chmod a+x /entrypoint.prod.sh; \
+	mkdir /app
 
-
-#CMD ["python3"]
+COPY ./user_service /app/user_service
+COPY ./fortnitepy /app/fortnitepy

@@ -24,8 +24,6 @@ services:
         command: ["/entrypoint.prod.sh"]
         volumes:
           # TODO копировать все в Docker файле
-          - ./fortunepy:/app/fortunepy
-          - ./user_service/:/app/user_service
           - ./flags:/flags
           - sockets:/sockets
         ports:

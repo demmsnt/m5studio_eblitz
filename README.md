@@ -55,5 +55,14 @@ If database initializet db_exist.flag will be created
     ``` console
     docker-compose run user-service /linter.sh
     ```
+3. For production
+   
+   use
+
+   ``` console
+   docker-compose -f docker-compose-prod.yaml up
+   ```
+
+   In production mode remove linters. And base code not mount as volume
 
 
