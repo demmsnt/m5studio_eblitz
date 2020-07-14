@@ -11,6 +11,8 @@ def index():
 
 @app.route('/createdb')
 def create_db():
+    x = 10
+    z = x/0
     db.create_all()
     return 'DB created'
 

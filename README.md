@@ -50,7 +50,7 @@ If database initializet db_exist.flag will be created
     docker-compose exec user-service /linter.sh
     ```
 
-2.    Or (if container not running)
+2.  Or (if container not running)
 
     ``` console
     docker-compose run user-service /linter.sh
