@@ -23,7 +23,6 @@ services:
         env_file: ./.flaskenv
         command: ["/entrypoint.prod.sh"]
         volumes:
-          # TODO копировать все в Docker файле
           - ./flags:/flags
           - sockets:/sockets
         ports:
